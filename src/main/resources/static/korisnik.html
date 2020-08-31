@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+
+
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/jquery.validate.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+    <script type="text/javascript" src="/static/js/korisnici.js"></script>
+    <script type="text/javascript" src="/static/js/pregledProfila.js"></script>
+    <title>Korisnik</title>
+    <style>
+        div{
+            background-image: url("popcorn.jpg");
+            text-align: center;
+        }
+        form{
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+        body{
+            background-color: gainsboro;
+        }
+        .jumbotron{
+            background-color: slategray;
+            color: tomato;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-size: medium;
+        }
+        h1{
+            text-align: center;
+            font-family:Georgia, 'Times New Roman', Times, serif;
+            font-size:xx-large;
+            text-transform: capitalize;
+            color: darkred;
+        }
+        h2{
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="page-header">
+        <h1><b>Cinema</b></h1>
+        <h2>Korisnik</h2>
+    </div>
+    <div class="card">
+        <div class="container">
+
+            <img src="user.jpg" alt="Korisnik" style=";width:15%;height:15%;">
+            <div class="row">
+                <div class="col-sm-6 text-center">
+                    <h2>Ime: </h2><h3 id="imeKor" ></h3>
+                </div>
+                <div class="col-sm-6 text-center">
+                    <h2 >E-mail </h2><h3 id="eadresaKor"></h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6 text-center">
+                    <h2 >Prezime: </h2><h3 id="prezimeKor" ></h3>
+                </div>
+                <div class="col-sm-6 text-center">
+                    <h2 >Datum rođenja  </h2><h3 id="datumRodjenjaKor"></h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6 text-center">
+                    <h2 >Korisnicko ime  </h2><h3 id="korisnickoImeKor"></h3>
+                </div>
+
+                <div class="col-sm-6 text-center">
+                    <h2 >Uloga  </h2><h3 id="ulogaKor"></h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6 text-center">
+                    <h2 >Lozinka  </h2><h3 id="lozinkaKor" ></h3>
+                </div>
+
+                <div class="col-sm-6 text-center">
+                    <h2 >Aktivan  </h2><h3 id="aktivanKor"></h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6 text-center">
+                    <h2 >Kontakt lelefon  </h2><h3 id="kontaktTelefonKor"></h3>
+                </div>
+                <div class="col-sm-6 text-center">
+                    <h2 >Bioskopi u vasoj nadleznosti  </h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6 text-center">
+                    <h2 id="pregledSvihRezervisanihFilmova">Rezervisani filmovi </h2><h3 ></h3>
+                </div>
+                <div class="col-sm-6 text-center">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

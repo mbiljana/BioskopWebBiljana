@@ -3,6 +3,8 @@ package com.example.model.entity;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 
 @Entity
@@ -66,6 +68,19 @@ public class Korisnik implements Serializable{
         this.datumRodjenja = datum_rodjenja;
         this.uloga = uloga;
         this.aktivan = aktivan;
+    }
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinTable(name = "odgledani_filmoviKorisnik",
+            joinColumns = @JoinColumn(name = "korisnik_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "film_id", referencedColumnName = "id"))
+    private Set<Film> odgledaniFilmovi = new HashSet<>();
+
+    public Set<Film> getOdgledaniFilmovi() {
+        return odgledaniFilmovi;
+    }
+
+    public void setOdgledaniFilmovi(Set<Film> odgledaniFilmovi) {
+        this.odgledaniFilmovi = odgledaniFilmovi;
     }
 
     public Long getId() {

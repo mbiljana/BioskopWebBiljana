@@ -30,6 +30,11 @@ public class Ocena implements Serializable {
         this.film = film;
         this.gledalac = gledalac;
     }
+    public Ocena( double ocena, Film film, Gledalac gledalac) {
+        this.ocena = ocena;
+        this.film = film;
+        this.gledalac = gledalac;
+    }
 
     public Long getId() {
         return id;

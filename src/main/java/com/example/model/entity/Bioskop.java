@@ -2,7 +2,9 @@ package com.example.model.entity;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -18,13 +20,31 @@ public class Bioskop implements Serializable{
     private String adresa;
     @Column
     private String brojTelefonaCentrale;
+    @Column
     private String eMail;
 
-    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    private Set<Menadzer> menadzeri= new HashSet<Menadzer>();
 
-    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    private Set<Sala> sale = new HashSet<Sala>();
+    @ManyToMany
+    @JoinTable(name = "filmoviBioskop",
+            joinColumns = @JoinColumn(name = "bioskop_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "film_id", referencedColumnName = "id"))
+    private Set<Film> filmoviBioskop=new HashSet<>();
+
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    private Menadzer menadzer;
+
+    public void setMenadzer(Menadzer menadzer) {
+        this.menadzer = menadzer;
+    }
+
+    @OneToMany(mappedBy = "bioskop",fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    private List<Sala> sale = new ArrayList<>();
+
+
+
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    private Set<ListaProjekcija> listaProjekcija=new HashSet<>();
+
 
 
     public Bioskop() {
@@ -39,11 +59,19 @@ public class Bioskop implements Serializable{
         this.eMail=eMail;
     }
     public Bioskop(String naziv, String adresa, String brojTelefonaCentrale, String eMail) {
+        this.naziv = naziv;
+        this.adresa = adresa;
+        this.brojTelefonaCentrale = brojTelefonaCentrale;
+        this.eMail=eMail;
+    }
+
+    public Bioskop(String naziv, String adresa, String brojTelefonaCentrale, String eMail, Menadzer menadzer) {
         this.id = id;
         this.naziv = naziv;
         this.adresa = adresa;
         this.brojTelefonaCentrale = brojTelefonaCentrale;
         this.eMail=eMail;
+        this.menadzer= menadzer;
     }
 
     public Long getId() {
@@ -86,7 +114,7 @@ public class Bioskop implements Serializable{
         this.eMail= eMail;
     }
 
-    public void setSale(Set<Sala> sale) {
+    public void setSale(List<Sala> sale) {
         this.sale = sale;
     }
 
@@ -94,11 +122,11 @@ public class Bioskop implements Serializable{
         return eMail;
     }
 
-    public Set<Menadzer> getMenadzeri() {
-        return menadzeri;
+    public Menadzer getMenadzer() {
+        return menadzer;
     }
 
-    public Set<Sala> getSale() {
+    public List<Sala> getSale() {
         return sale;
     }
 }

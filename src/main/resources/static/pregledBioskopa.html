@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+
+
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/jquery.validate.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <title>Pregled bioskopa</title>
+    <style>
+        .btn{
+            color: black;
+            background-color: white;
+        }
+        div{
+            background-image: url("popcorn.jpg");
+            text-align: center;
+        }
+        form{
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+        body{
+            background-color: gainsboro;
+        }
+        .jumbotron{
+            background-color: slategray;
+            color: tomato;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-size: medium;
+        }
+        h1{
+            text-align: center;
+            font-family:Georgia, 'Times New Roman', Times, serif;
+            font-size:xx-large;
+            text-transform: capitalize;
+            color: darkred;
+        }
+        h2{
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="page-header">
+        <h1><b>Cinema</b></h1>
+        <h2>Pregled svih bioskopa</h2>
+    </div>
+    <div id="sviBioskopi">
+        <div class="container">
+            <table id="bioskopi" class="table table-striped table-hover table-bordered ">
+                <thead class="thead">
+                <tr>
+                    <th colspan="8" class="bg-success text-center">Bioskopi</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th>ID</th>
+                    <th>Naziv</th>
+                    <th>Adresa</th>
+                    <th>Broj telefona centrale</th>
+                    <th>E-mail</th>
+                    <th>Sale</th>
+                    <th>Dodaj salu</th>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div id="sveSaleUbioskopu">
+        <div class="container">
+            <table id="sale" class="table table-striped table-hover table-bordered ">
+                <thead class="thead">
+                <tr>
+                    <th colspan="7" class="bg-success text-center">Sale</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th >ID</th>
+                    <th >Naziv</th>
+                    <th >Broj sedišta</th>
+                    <th>Lista projkecija</th>
+                    <th>Kreiraj listu projekcija</th>
+                    <th >Obriši</th>
+                    <th>Izmeni</th>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div id="sveListeUsali">
+        <div class="container">
+            <table id="listeUsali" class="table table-striped table-hover table-bordered ">
+                <thead class="thead">
+                <tr>
+                    <th colspan="6" class="bg-info text-center">Dostupni su sledeci filmovi</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th>Naziv filma   <i class="fa fa-film"></i></th>
+                    <th>Žanr  </th>
+                    <th>Dan   <i class="fa fa-calendar"></i></th>
+                    <th>Početak  <i class="fa fa-clock-o"></i></th>
+                    <th>Cena  <i class="fa fa-money"></i></th>
+                    <th>Izmeni  <i class="fa fa-wrench"></i></th>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

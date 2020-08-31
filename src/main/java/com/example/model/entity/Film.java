@@ -3,7 +3,9 @@ package com.example.model.entity;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Time;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -20,12 +22,31 @@ public class Film implements Serializable {
     @Column
     private String zanr;
     @Column
-    private Time trajanje;
+    private String trajanje;
     @Column
     private Double ocena;
 
-    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "film",fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private Set<ListaProjekcija> lista_projekcija = new HashSet<ListaProjekcija>();
+
+    @ManyToMany(mappedBy = "filmoviSala",fetch = FetchType.EAGER, cascade = CascadeType.ALL )
+    private List<Sala>sale =new ArrayList<>();
+
+    @ManyToMany(mappedBy="filmoviBioskop",fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    private Set<Bioskop> bioskopi=new HashSet<>();
+
+    @ManyToMany
+    private Set<Gledalac>gledaoci=new HashSet<>();
+
+    @ManyToMany
+    private Set<Korisnik>korisnici=new HashSet<>();
+
+
+
+
+
+
+
 
 
     public Film() {
@@ -33,7 +54,7 @@ public class Film implements Serializable {
     }
 
 
-    public Film(Long id, String naziv, String opis, String zanr, Time trajanje, Double ocena, Set<ListaProjekcija> projekcija) {
+    public Film(Long id, String naziv, String opis, String zanr, String trajanje, Double ocena, Set<ListaProjekcija> projekcija) {
         this.id = id;
         this.naziv = naziv;
         this.opis = opis;
@@ -41,6 +62,14 @@ public class Film implements Serializable {
         this.trajanje = trajanje;
         this.ocena = ocena;
         this.lista_projekcija = projekcija;
+    }
+
+    public Film(String naziv, String opis, String zanr, String trajanje, Double ocena) {
+        this.naziv = naziv;
+        this.opis = opis;
+        this.zanr = zanr;
+        this.trajanje = trajanje;
+        this.ocena = ocena;
     }
 
     public Long getId() {
@@ -75,11 +104,11 @@ public class Film implements Serializable {
         this.zanr = zanr;
     }
 
-    public Time getTrajanje() {
+    public String getTrajanje() {
         return trajanje;
     }
 
-    public void setTrajanje(Time trajanje) {
+    public void setTrajanje(String trajanje) {
         this.trajanje = trajanje;
     }
 

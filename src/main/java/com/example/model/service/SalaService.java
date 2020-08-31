@@ -1,12 +1,19 @@
 package com.example.model.service;
 
-import com.example.model.DTO.SalaDTO;
+import com.example.model.entity.dto.DTO.SalaDTO;
 import com.example.model.entity.Sala;
 
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 
 public interface SalaService {
-    HashSet<Sala> dodajSalu(ArrayList<SalaDTO> salaDTOS);
+    List<Sala> findAll();
+    void delete(Sala sala);
+    Sala findById(Long id);
+    Sala save(Sala sala);
+    Sala findByNaziv(String naziv);
+    Sala findOne(Long id);
+
 }
 

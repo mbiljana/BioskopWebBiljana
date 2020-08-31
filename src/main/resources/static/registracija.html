@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/jquery.validate.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+    <script type="text/javascript" src="/static/js/korisnici.js"></script>
+    <title>Registracija korisnika</title>
+
+    <style>
+        .btn{
+            color: black;
+            background-color: white;
+        }
+        div{
+            background-image: url("popcorn.jpg");
+        }
+        form{
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+        body{
+            background-color: gainsboro;
+        }
+        .jumbotron{
+            background-color: slategray;
+            color: tomato;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-size: medium;
+        }
+        h1{
+            text-align: center;
+            font-family:Georgia, 'Times New Roman', Times, serif;
+            font-size:xx-large;
+            text-transform: capitalize;
+            color: darkred;
+        }
+        h2{
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            text-align: center;
+        }
+    </style>
+
+</head>
+<body>
+<div class="container">
+    <div class="page-header">
+        <h1><b>Cinema</b></h1>
+        <h2>Dobrodošli!Pre nego sto krenete u potragu za filmovima, molimo Vas da se registrujete!</h2>
+    </div>
+    <div class="modal-dialog text-center">
+        <div class="col-sm-12">
+            <div class="modal-content">
+                <h2 class="text-center">Registrujte se</h2>
+                <form id="addKorisnikForm" >
+                    <div class="form-group1">
+                        <h5 for="korisnickoIme">Korisničko ime:</h5>
+                        <input id="korisnickoIme" name="korisnickoIme" type="text" class="registar" placeholder="Username">
+                    </div>
+                    <div class="form-group1">
+                        <h5 for="lozinka">Lozinka:</h5>
+                        <input id="lozinka" name="lozinka" type="password" class="registar" placeholder="Password">
+                    </div>
+                    <div class="form-group1">
+                        <h5 for="ime">Ime:</h5>
+                        <input id="ime" name="ime" type="text" class="registar" placeholder="Ime">
+                    </div>
+                    <div class="form-group1">
+                        <h5 for="prezime">Prezime:</h5>
+                        <input id="prezime" name="prezime"type="text" class="registar" placeholder="Prezime">
+                    </div>
+                    <div class="form-group1">
+                        <h5 for="kontaktTelefon">Kontakt:</h5>
+                        <input id="kontaktTelefon" name="kontaktTelefon"type="text" class="registar" placeholder="Kontakt">
+                    </div>
+                    <div class="form-group1">
+                        <h5 for="eadresa">E-mail:</h5>
+                        <input id="eadresa" name="eadresa"type="text" class="registar" placeholder="E-mail">
+                    </div>
+
+                    <div class="form-group1">
+                        <h5 for="datumRodjenja">Datum rođenja:</h5>
+                        <input id="datumRodjenja"  name="datumRodjenja" type="date" value="2020-05-21" class="registar datum" placeholder="Datum rodjenja">
+                    </div>
+                    <div class="form-group1">
+                        <h5 for="uloga">Uloga:</h5>
+                        <select id="uloga" class="uloga1" name="uloga"   >
+
+                            <option value="gledaoc">Gledalac</option>
+                            <option value="menadzer">Menadzer</option>
+                        </select>
+                    </div>
+                    <div>
+                        <button type="submit" class="btn btn-success">Posalji zahtev</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+</html>

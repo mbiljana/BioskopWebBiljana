@@ -1,75 +1,60 @@
 package com.example.model.service;
 
-import com.example.model.DTO.KorisnikDTO;
+import com.example.model.entity.dto.DTO.KorisnikDTO;
 import com.example.model.entity.*;
+import com.example.model.entity.dto.DTO.PrijavaKorisnikaDTO;
 import com.example.model.repository.KorisnikRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.validation.constraints.Null;
 import java.util.Date;
+import java.util.List;
 
 @Service
 public class KorisnikServiceImpl implements KorisnikService{
     @Autowired
     private KorisnikRepository korisnikRepository;
     @Override
-    public KorisnikDTO dodajKorisnika(KorisnikDTO dto) {
-        //provera da li vec prostojji korisnik sa tim korisnickim imenom
-        Korisnik pronadjenKorisnik= korisnikRepository.findByKorisnickoIme(dto.getKorisnicko_ime());
-        if (pronadjenKorisnik!= null){
-            return null;
-        }
-        if(dto.getUloga()== EnumUloga.GLEDALAC){
-            Gledalac gledalac = new Gledalac(dto.getKorisnicko_ime(), dto.getLozinka(),dto.getIme(),
-                    dto.getPrezime(),
-                    dto.getKontakt_telefon(), dto.getE_mail(), dto.getDatum_rodjenja(),
-                     dto.getUloga(),
-                    true);
-            korisnikRepository.save(gledalac);
-        }else if(dto.getUloga()==EnumUloga.MENADZER){
-            Menadzer menadzer = new Menadzer(dto.getKorisnicko_ime(), dto.getLozinka(), dto.getIme(), dto.getPrezime(),
-                    dto.getKontakt_telefon(), dto.getKontakt_telefon(), dto.getDatum_rodjenja(), dto.getUloga(),
-                    false);
-            korisnikRepository.save(menadzer);
-        }
-        return dto;
-
-
-
+    public Korisnik findByKorisnickoIme(String ime) {
+        Korisnik korisnikk = this.korisnikRepository.findByKorisnickoIme( ime);
+        return korisnikk;
     }
 
     @Override
-    public KorisnikDTO prijavaKorisnika(String korisnickoIme, String lozinka, boolean aktivan){
+    public List<Korisnik> findAll() {
+        List<Korisnik> korisnici = this.korisnikRepository.findAll();
+        return korisnici;
+    }
 
-        Korisnik postojiKorisnik=korisnikRepository.findByKorisnickoImeAndLozinkaAndAktivan(korisnickoIme,lozinka,aktivan);
-        if(postojiKorisnik==null){
-            return null;
-        }
+    @Override
+    public Korisnik save(Korisnik korisnik) {
+        return this.korisnikRepository.save(korisnik);
+    }
+    @Override
+    public void delete(Long id) {
+        korisnikRepository.deleteById(id);
+    }
 
-        KorisnikDTO korisnik=new KorisnikDTO(postojiKorisnik.getKorisnicko_ime(),postojiKorisnik.getLozinka(),
-                                             postojiKorisnik.getIme(),
-                                             postojiKorisnik.getPrezime(),postojiKorisnik.getKontakt_telefon(),
-                                             postojiKorisnik.getE_mail(),postojiKorisnik.getDatum_rodjenja(),
-                                             postojiKorisnik.getUloga());
+    @Override
+    public List<Korisnik> findAllMenadzeri(EnumUloga uloga) {
+        List<Korisnik> menadzeri = this.korisnikRepository.findAllByUloga(uloga);
+        return menadzeri;
+    }
 
+    @Override
+    public Korisnik findOne(Long id) {
+        Korisnik korisnik=korisnikRepository.getOne(id);
         return korisnik;
     }
 
-    public KorisnikDTO pregledProfila(String korisnickoIme){
-        Korisnik postojiKorisnik=korisnikRepository.findByKorisnickoIme(korisnickoIme);
-        if(postojiKorisnik==null){
-            return null;
-        }
-
-        KorisnikDTO korisnik=new KorisnikDTO(postojiKorisnik.getKorisnicko_ime(),postojiKorisnik.getLozinka(),
-                postojiKorisnik.getIme(),
-                postojiKorisnik.getPrezime(),postojiKorisnik.getKontakt_telefon(),
-                postojiKorisnik.getE_mail(),postojiKorisnik.getDatum_rodjenja(),
-                postojiKorisnik.getUloga());
-
-        return korisnik;
+    @Override
+    public Korisnik loginProvera(PrijavaKorisnikaDTO korisnik){
+        Korisnik korisnik1=this.korisnikRepository.findByKorisnickoImeAndLozinka(korisnik.getKorisnickoIme(),korisnik.getLozinka());
+    return korisnik1;
     }
+
+
 
 
 }

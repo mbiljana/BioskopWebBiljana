@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+
+
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/jquery.validate.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script type="text/javascript" src="/static/js/sviBioskopi.js"></script>
+    <script type="text/javascript" src="/static/js/sale.js"></script>
+    <script type="text/javascript" src="/static/js/listaProjekcija.js"></script>
+    <title>Svi bioskopi</title>
+    <style>
+        .btn{
+            color: black;
+            background-color: white;
+        }
+        div{
+            background-image: url("popcorn.jpg");
+            text-align: center;
+        }
+        form{
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+        body{
+            background-color: gainsboro;
+        }
+        .jumbotron{
+            background-color: slategray;
+            color: tomato;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-size: medium;
+        }
+        h1{
+            text-align: center;
+            font-family:Georgia, 'Times New Roman', Times, serif;
+            font-size:xx-large;
+            text-transform: capitalize;
+            color: darkred;
+        }
+        h2{
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            text-align: center;
+        }
+    </style>
+
+</head>
+<body>
+
+<div id="sviBioskopiAdmin">
+    <div class="container">
+        <table id="bioskopiAdmin" class="table table-striped table-hover table-bordered ">
+            <thead class="thead">
+            <tr>
+                <th colspan="8" class="bg-success text-center">Bioskopi</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <th>ID</th>
+                <th>Naziv</th>
+                <th>Adresa</th>
+                <th>Broj telefona centrale</th>
+                <th>E-mail</th>
+                <th>Izmeni</th>
+                <th>Obrisi</th>
+            </tr>
+            </tbody>
+        </table>
+        <button onclick="location.href='/dodavanjeBioskopa.html'" type="button" class="btn btn-primary btn-lg btn-block text-center">Dodaj novi bioskop</button>
+    </div>
+</div>
+
+
+</body>
+</html>
