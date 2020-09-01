@@ -29,7 +29,7 @@ public class OcenaController {
     private KorisnikService korisnikService;
     @Autowired
     private FilmService filmService;
-   // @Autowired
+   //@Autowired
    // private OcenaService ocenaService;
     @Autowired
     private GledalacService gledalacService;

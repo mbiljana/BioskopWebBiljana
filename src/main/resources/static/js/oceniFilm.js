@@ -21,7 +21,7 @@ $(document).on("submit","form",function(event){
     var ocena=$("#ocena").val();
     $.ajax({
         type:"POST",
-        url:"http://localhost:8080/api/korisnici/oceniFilm/"+id,
+        url:"http://localhost:8080/api/ocena",
         dataType:"json",
         contentType:"application/json",
         data: ocena,

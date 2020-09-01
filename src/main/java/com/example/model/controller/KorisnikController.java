@@ -1,9 +1,6 @@
 package com.example.model.controller;
 
-import com.example.model.entity.dto.DTO.BioskopDTO;
-import com.example.model.entity.dto.DTO.KorisnikDTO;
-import com.example.model.entity.dto.DTO.PrijavaKorisnikaDTO;
-import com.example.model.entity.dto.DTO.UlogovaniKorisnikDTO;
+import com.example.model.entity.dto.DTO.*;
 import com.example.model.entity.*;
 import com.example.model.entity.dto.DTO.KorisnikDTO;
 import com.example.model.entity.dto.DTO.PrijavaKorisnikaDTO;
@@ -245,6 +242,8 @@ public class KorisnikController {
                 korisnik.getE_mail(),korisnik.getDatum_rodjenja(),korisnik.getUloga(),true);
         return new ResponseEntity<>(korisnikDTO,HttpStatus.OK);
     }
+
+
 
 
 

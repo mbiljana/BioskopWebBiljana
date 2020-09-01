@@ -3,24 +3,23 @@ $(document).ready(function(){
     if(isLoggedIn()){
         $('#login').hide();
         $.ajax({
-            //data: {},
             timeout: 1000,
             type: 'GET',
-            url: '/api/korisnici/trenutni',
+            url: '/api/korisnici'
 
         }).done(function(data, textStatus, jqXHR) {
             ulogovaniKorisnik = data;
-            if(ulogovaniKorisnik.uloga==="admin"){
+            if(ulogovaniKorisnik.uloga==="ADMIN"){
                 $('#korisniciAdmin').show();
                 $('#bioskopiAdmin').show();
                 $('#bioskopiMenadzer').hide();
             }
-            if(ulogovaniKorisnik.uloga==="menadzer"){
+            if(ulogovaniKorisnik.uloga==="MENADZER"){
                 $('#bioskopiMenadzer').show();
                 $('#bioskopiAdmin').hide();
                 $('#korisniciAdmin').hide();
             }
-            if(ulogovaniKorisnik.uloga==="gledaoc"){
+            if(ulogovaniKorisnik.uloga==="GLEDALAC"){
                 $('#bioskopiMenadzer').hide();
                 $('#bioskopiAdmin').hide();
                 $('#korisniciAdmin').hide();

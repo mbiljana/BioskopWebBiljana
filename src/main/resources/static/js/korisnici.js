@@ -180,7 +180,7 @@ function obaveznaPoljaPopunjena(){
     if(prezime.value == ""){
         errors.push("Prezime");
     }
-    if(uloga.value != "gledaoc" && uloga.value != "menadzer" ){
+    if(uloga.value != "GLEDALAC" && uloga.value != "MENADZER" ){
         errors.push("Uloga");
     }
     if(errors.length != 0){
