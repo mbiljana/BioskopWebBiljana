@@ -3,10 +3,12 @@ package com.example.model.service;
 import com.example.model.entity.Ocena;
 import com.example.model.repository.OcenaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Service
 public class OcenaServiceImpl implements OcenaService{
 
     @Autowired

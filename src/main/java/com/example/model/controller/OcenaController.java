@@ -29,14 +29,14 @@ public class OcenaController {
     private KorisnikService korisnikService;
     @Autowired
     private FilmService filmService;
-   //@Autowired
-   // private OcenaService ocenaService;
+   @Autowired
+    private OcenaService ocenaService;
     @Autowired
     private GledalacService gledalacService;
 
 
     //kreiranje ocene
-    /*
+
     @PostMapping(
             consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE
@@ -48,9 +48,10 @@ public class OcenaController {
         return new ResponseEntity<>(oDTO, HttpStatus.OK);
     }
 
-     */
+
 
     //kreiranje liste ocena za datog korisnika
+
     /*
     @PostMapping(
             value = "/ocenjeni",
@@ -71,8 +72,8 @@ public class OcenaController {
         }
         return new ResponseEntity<>(ocenaDTOList,HttpStatus.OK);
     }
+    */
 
-     */
 
 
 
